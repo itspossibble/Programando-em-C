@@ -30,7 +30,7 @@ int main() {
     int numEspacos = contarEspacosEmBranco(inputString);
 
 
-    printf("O numero de espaços em branco na string sera: %d\n", numEspacos);
+    printf("O numero de espaÃ§os em branco na string sera: %d\n", numEspacos);
 
     return 0;
 }
