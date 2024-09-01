@@ -1,0 +1,30 @@
+#include <stdio.h>
+#include <string.h>
+#define MAX_LEN 100
+
+void inverterString(char str[]) {
+    int inicio = 0;
+    int fim = strlen(str) - 1;
+    char temp;
+
+    while (inicio < fim) {
+        temp = str[inicio];
+        str[inicio] = str[fim];
+        str[fim] = temp;
+        inicio++;
+        fim--;
+    }
+}
+int main() {
+    char str[MAX_LEN];
+    printf("Digite uma string (máximo de %d caracteres): ", MAX_LEN - 1);
+    fgets(str, sizeof(str), stdin);
+    size_t len = strlen(str);
+    if (len > 0 && str[len - 1] == '\n') {
+        str[len - 1] = '\0';
+    }
+    inverterString(str);
+    printf("String invertida: %s\n", str);
+
+    return 0;
+}
