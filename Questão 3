@@ -1,0 +1,40 @@
+#include <stdio.h>
+#define NUM_DIAS 30
+
+int main() {
+    float faturamento[NUM_DIAS];
+    float menor = __FLT_MAX__;
+    float maior = -__FLT_MAX__;
+    float soma = 0;
+    int dias_acima_media = 0;
+
+    printf("Digite o faturamento diário para cada um dos %d dias do mês:\n", NUM_DIAS);
+
+    for (int i = 0; i < NUM_DIAS; i++) {
+        printf("Dia %d: ", i + 1);
+        scanf("%f", &faturamento[i]);
+
+        if (faturamento[i] < menor) {
+            menor = faturamento[i];
+        }
+        if (faturamento[i] > maior) {
+            maior = faturamento[i];
+        }
+
+        soma += faturamento[i];
+    }
+
+    float media = soma / NUM_DIAS;
+
+    for (int i = 0; i < NUM_DIAS; i++) {
+        if (faturamento[i] > media) {
+            dias_acima_media++;
+        }
+    }
+
+    printf("Menor valor de faturamento: %.2f\n", menor);
+    printf("Maior valor de faturamento: %.2f\n", maior);
+    printf("Número de dias com faturamento acima da média: %d\n", dias_acima_media);
+
+    return 0;
+}
